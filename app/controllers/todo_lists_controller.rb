@@ -3,7 +3,7 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists
   # GET /todo_lists.json
-  def index
+  def index 
     @todo_lists = TodoList.all
   end
 
@@ -25,7 +25,6 @@ class TodoListsController < ApplicationController
   # POST /todo_lists.json
   def create
     @todo_list = TodoList.new(todo_list_params)
-
     respond_to do |format|
       if @todo_list.save
         format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
@@ -56,7 +55,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
     respond_to do |format|
-      format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Todo list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
